@@ -1,5 +1,5 @@
-import { onUserTokenGeneratedEvent,version, createKindeAPI, getEnvironmentVariable, accessTokenCustomClaims, WorkflowSettings, WorkflowTrigger, denyAccess, fetch } from "@kinde/infrastructure"
-import { settings } from "../../../utils/utils.ts";
+import { onUserTokenGeneratedEvent,createKindeAPI, getEnvironmentVariable, accessTokenCustomClaims, WorkflowSettings, WorkflowTrigger, denyAccess, fetch } from "@kinde/infrastructure"
+import { settings } from "../../../utils/utils";
 
 export const workflowSettings: WorkflowSettings = {
   id: "addAccessTokenClaim",
@@ -8,14 +8,13 @@ export const workflowSettings: WorkflowSettings = {
   bindings: {
     "kinde.accessToken": {},
     "kinde.fetch": {},
-    "url": {},
     "kinde.env": {}
   }
 };
 
 export default {
   async handle(event: onUserTokenGeneratedEvent) {
-    const excludedPermissions = ['payments:create'];
+    /*const excludedPermissions = ['payments:create'];
     
     const orgCode = event.context.organization.code;
     const userId = event.context.user.id;
@@ -29,6 +28,6 @@ export default {
     const accessToken = accessTokenCustomClaims<{ hello: string; settings: string; permissions: []}>();
     accessToken.hello = "Hello there!";
     accessToken.settings = settings.output
-    accessToken.permissions =  res.json.permissions.filter((p) => !excludedPermissions.includes(p.key))
+    accessToken.permissions =  res.json.permissions.filter((p) => !excludedPermissions.includes(p.key))*/
   }
 }
