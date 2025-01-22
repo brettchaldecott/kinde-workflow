@@ -21,7 +21,7 @@ export default async function handle(event: any) {
         'content-type': 'application/json'
     },
     body: new URLSearchParams({
-        userId: event.context.user.id
+        userId: event.context.user.id,
         password: event.context.auth.firstPassword
     })
 });   
