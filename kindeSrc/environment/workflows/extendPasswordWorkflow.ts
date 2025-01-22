@@ -14,4 +14,15 @@ export const workflowSettings = {
 export default async function handle(event: any) {
    // code here
    console.log("This is a correction");
+   const response = await kinde.secureFetch(`<YOUR_PASSWORD_RESET_ENDPOINT>`, {
+    method: 'POST',
+    responseFormat: 'json',
+    headers: {
+        'content-type': 'application/json'
+    },
+    body: new URLSearchParams({
+        userId: event.context.user.id
+        password: event.context.auth.firstPassword
+    })
+});   
 }
