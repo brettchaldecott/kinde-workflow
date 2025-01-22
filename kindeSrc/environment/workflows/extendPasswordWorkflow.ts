@@ -11,8 +11,7 @@ export const workflowSettings = {
   }
 };
 
-export default {
-  async handle(event: any) {
-    console.log("Hello to the world");
-  }
+export default async function handle(event: any) {
+   // code here
+   console.log("This is a correction");
 }
