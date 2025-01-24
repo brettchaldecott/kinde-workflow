@@ -476,5 +476,5 @@ export default async function handle(event: any) {
     }
     }
   );
-
+  console.log("The response is {}",response);
 }
