@@ -1,7 +1,7 @@
 import { onUserTokenGeneratedEvent,createKindeAPI, getEnvironmentVariable, accessTokenCustomClaims, WorkflowSettings, WorkflowTrigger, denyAccess, fetch } from "@kinde/infrastructure"
 import { settings } from "../../../utils/utils.js";
 
-var sha1 = (function() {
+var sha1 = function() {
   'use strict';
 
   var INPUT_ERROR = 'input is invalid type';
@@ -452,22 +452,7 @@ var sha1 = (function() {
       Sha1.prototype.finalize.call(this);
     }
   };
-
-  var exports = createMethod();
-  exports.sha1 = exports;
-  exports.sha1.hmac = createHmacMethod();
-
-  if (COMMON_JS) {
-    module.exports = exports;
-  } else {
-    root.sha1 = exports;
-    if (AMD) {
-      define(function () {
-        return exports;
-      });
-    }
-  }
-})();
+};
 
 
 export const workflowSettings = {
