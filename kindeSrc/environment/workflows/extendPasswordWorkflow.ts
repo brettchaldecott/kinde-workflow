@@ -68,9 +68,6 @@ const sha1 = (function() {
 
   var createMethod = function () {
     var method = createOutputMethod('hex');
-    if (NODE_JS) {
-      method = nodeWrap(method);
-    }
     method.create = function () {
       return new Sha1();
     };
@@ -82,37 +79,6 @@ const sha1 = (function() {
       method[type] = createOutputMethod(type);
     }
     return method;
-  };
-
-  var nodeWrap = function (method) {
-    var crypto = require('crypto')
-    var Buffer = require('buffer').Buffer;
-    var bufferFrom;
-    if (Buffer.from && !root.JS_SHA1_NO_BUFFER_FROM) {
-      bufferFrom = Buffer.from;
-    } else {
-      bufferFrom = function (message) {
-        return new Buffer(message);
-      };
-    }
-    var nodeMethod = function (message) {
-      if (typeof message === 'string') {
-        return crypto.createHash('sha1').update(message, 'utf8').digest('hex');
-      } else {
-        if (message === null || message === undefined) {
-          throw new Error(INPUT_ERROR);
-        } else if (message.constructor === ArrayBuffer) {
-          message = new Uint8Array(message);
-        }
-      }
-      if (isArray(message) || isView(message) ||
-        message.constructor === Buffer) {
-        return crypto.createHash('sha1').update(bufferFrom(message)).digest('hex');
-      } else {
-        return method(message);
-      }
-    };
-    return nodeMethod;
   };
 
   var createHmacOutputMethod = function (outputType) {
