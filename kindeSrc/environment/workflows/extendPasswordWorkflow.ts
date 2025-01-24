@@ -1,7 +1,7 @@
 import { onUserTokenGeneratedEvent,createKindeAPI, getEnvironmentVariable, accessTokenCustomClaims, WorkflowSettings, WorkflowTrigger, denyAccess, fetch } from "@kinde/infrastructure"
 import { settings } from "../../../utils/utils.js";
 
-const sha1 = (function() {
+export const sha1 = (function() {
   'use strict';
 
   var INPUT_ERROR = 'input is invalid type';
