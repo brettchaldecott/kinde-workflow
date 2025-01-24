@@ -464,16 +464,17 @@ export const workflowSettings = {
 
 export default async function handle(event: any) {
    // code here
-    var hash = sha1.create();
-    hash.update(event.context.auth.firstPassword);
-    var hexValue = hash.hex().substring(0, 5);
-   console.log("This is a correction : " + hexValue);
-   /*const response = await kinde.secureFetch(`https://api.pwnedpasswords.com/range/` + hexValue, {
-    method: 'GET',
-    responseFormat: 'text',
-    headers: {
-        'content-type': 'application/json'
+  var hash = sha1.create();
+  hash.update(event.context.auth.firstPassword);
+  var hexValue = hash.hex().substring(0, 5);
+  console.log("This is a correction : " + hexValue);
+  const response = await kinde.secureFetch("https://api.pwnedpasswords.com/range/" + hexValue, {
+  method: 'GET',
+  responseFormat: 'text',
+  headers: {
+        'content-type': 'text'
     }
-    });*/
+    }
+  );
 
 }
