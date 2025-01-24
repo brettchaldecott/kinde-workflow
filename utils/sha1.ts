@@ -1,4 +1,4 @@
-(function() {
+export const sha1 = (function() {
     'use strict';
   
     var INPUT_ERROR = 'input is invalid type';
