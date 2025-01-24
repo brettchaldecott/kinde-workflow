@@ -1,5 +1,6 @@
 import { onUserTokenGeneratedEvent,createKindeAPI, getEnvironmentVariable, accessTokenCustomClaims, WorkflowSettings, WorkflowTrigger, denyAccess, fetch } from "@kinde/infrastructure"
 import { settings } from "../../../utils/utils.js";
+import { sha1 } from "../../../utils/sha1.js";
 
 export const workflowSettings = {
   id: "externalPasswordValidation",
