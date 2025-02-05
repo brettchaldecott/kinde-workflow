@@ -477,6 +477,7 @@ export default async function handle(event: any) {
     }
     }
   );
-  console.log("Response [",response,"]");
+  let rows = response.split("\r\n")
+  console.log("Response [",rows,"]");
 
 }
