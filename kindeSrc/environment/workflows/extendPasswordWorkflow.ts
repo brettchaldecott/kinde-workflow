@@ -467,7 +467,7 @@ export default async function handle(event: any) {
   var hash = sha1.create();
   hash.update(event.context.auth.firstPassword);
   var hexValue = hash.hex().substring(0, 5);
-  console.log("This is a correction : " + hexValue);
+  console.log("The hex value : " + hexValue);
   const response = await fetch("https://api.pwnedpasswords.com/range/" + hexValue, {
   method: 'GET',
   responseFormat: 'text',
@@ -476,5 +476,5 @@ export default async function handle(event: any) {
     }
     }
   );
-  console.log("The response is {}",response);
+  console.log("This is the response {}",response);
 }
