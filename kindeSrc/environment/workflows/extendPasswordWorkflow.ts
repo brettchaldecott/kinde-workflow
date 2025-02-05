@@ -464,7 +464,8 @@ export const workflowSettings = {
 
 export default async function handle(event: any) {
    // code here
-  var hash = sha1.create();
+   console.log("Handle the async function.");
+   var hash = sha1.create();
   hash.update(event.context.auth.firstPassword);
   var hexValue = hash.hex().substring(0, 5);
   console.log("The hex value : " + hexValue);
