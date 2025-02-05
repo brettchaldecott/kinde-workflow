@@ -481,6 +481,6 @@ export default async function handle(event: any) {
       console.log("Key [",key,"] Value [",response[key],"]");
   }
   let rows = response;
-  console.log("Response [",rows,"]");
-
+  //console.log("Response [",rows,"]");
+  return false;
 }
