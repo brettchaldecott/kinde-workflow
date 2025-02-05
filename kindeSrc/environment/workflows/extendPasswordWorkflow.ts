@@ -477,7 +477,10 @@ export default async function handle(event: any) {
     }
     }
   );
-  let rows = response.split("\r\n")
+  for (let key in response) {
+      console.log("Key [",key,"] Value [",response[key],"]");
+  }
+  let rows = response;
   console.log("Response [",rows,"]");
 
 }
