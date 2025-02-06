@@ -478,7 +478,7 @@ export default async function handle(event: any) {
     }
   );
   for (let key in response) {
-      console.log("Key [",key,"] Value [",response[key],"]");
+      console.log("Key [",key,"]");
   }
   let rows = response;
   //console.log("Response [",rows,"]");
